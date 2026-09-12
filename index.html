@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Community Incremental</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Community Incremental</h1>
+
+        <nav>
+            <button onclick="showPage('game')">🎮 Play</button>
+            <button onclick="showPage('ideas')">💡 Ideas</button>
+            <button onclick="showPage('canon')">📜 Canon</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="game-page">
+            <h2>Community Incremental</h2>
+
+            <p id="coins">0 Coins</p>
+
+            <button id="click-button">CLICK</button>
+
+            <h3>Upgrades</h3>
+
+            <button id="upgrade-button">
+                TBD
+            </button>
+        </section>
+
+
+        <section id="ideas-page" class="hidden">
+            <h2>💡 Community Ideas</h2>
+
+            <button id="submit-button">＋ Submit Idea</button>
+
+            <div id="ideas-list"></div>
+        </section>
+
+
+        <section id="canon-page" class="hidden">
+            <h2>📜 Canon</h2>
+
+            <p>No canon ideas yet.</p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
