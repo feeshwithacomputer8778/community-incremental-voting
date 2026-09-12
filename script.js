@@ -1,3 +1,10 @@
+const SUPABASE_URL = "https://aadfaumzjwnztwiqdurs.supabase.co";
+const SUPABASE_KEY = "sb_publishable_L6yMr31VyJv7v8qwWCdewQ_o2iS2JA9";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 let coins = 0;
 let coinsPerClick = 1;
 
