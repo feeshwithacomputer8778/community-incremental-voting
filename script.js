@@ -5,10 +5,24 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+let ideas = [];
 let coins = 0;
 let coinsPerClick = 1;
 
-let ideas = [];
+async function loadIdeas() {
+    const { data, error } = await supabaseClient
+        .from("ideas")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error("Could not load ideas:", error);
+        return;
+    }
+
+    ideas = data;
+    displayIdeas();
+}
 
 const coinsDisplay = document.getElementById("coins");
 const clickButton = document.getElementById("click-button");
@@ -113,3 +127,4 @@ function voteForIdea(index) {
     ideas[index].votes++;
     displayIdeas();
 }
+loadIdeas();
