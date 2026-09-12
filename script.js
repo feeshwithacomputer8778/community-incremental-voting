@@ -8,7 +8,7 @@ const supabaseClient = window.supabase.createClient(
 let ideas = [];
 let coins = 0;
 let coinsPerClick = 1;
-
+let upgradeLevel = 0;
 async function loadIdeas() {
     const { data, error } = await supabaseClient
         .from("ideas")
@@ -34,18 +34,22 @@ clickButton.addEventListener("click", () => {
 });
 
 upgradeButton.addEventListener("click", () => {
-    if (coins >= 10) {
-        coins -= 10;
+    const cost = 10 * Math.pow(2.5, upgradeLevel);
+
+    if (coins >= cost) {
+        coins -= cost;
         coinsPerClick += 1;
+        upgradeLevel += 1;
         updateGame();
     }
 });
-
 function updateGame() {
     coinsDisplay.textContent = `${coins} Coins`;
 
+    const cost = 10 * Math.pow(2.5, upgradeLevel);
+
     upgradeButton.textContent =
-        `+1 Coin per click — 10 Coins`;
+        `+1 Coin per click — ${cost.toFixed(2)} Coins`;
 }
 
 
